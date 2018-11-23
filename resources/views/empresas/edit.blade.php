@@ -2,8 +2,8 @@
 @section('contenido')
 
 <?php
-  foreach($contribuyentes as $contribuyente){
-    $empresa = $contribuyente->contribuyente;
+  foreach($empresas as $empresa){
+    $empresa = $empresa->empresa;
   }
 ?>
 
@@ -30,10 +30,10 @@
           </div><!-- tab-2 -->
           <div class="tab-pane active" id="tab_3-1">
 
-                  <form action="{{ route('updateContribuyente') }}" method="POST">
+                  <form action="{{ route('updateEmpresa') }}" method="POST">
                     {{ csrf_field() }}
 
-                      @foreach($contribuyentes as $contribuyente)
+                      @foreach($empresas as $empresa)
                       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">  
                         <div class="box box-primary">
                           <div class="box-header with-border">
@@ -41,26 +41,26 @@
                           </div>
                           <div class="box-body">
                             <div class="form-group">
-                              <input type="text" name="nombreContribuyente" value="{{$contribuyente->contribuyente}}" class="form-control" placeholder="Nombre del contribuyente"> 
-                              <input type="hidden" name="idContribuyente" value="{{$contribuyente->idContribuyente}}">
+                              <input type="text" name="nombreEmpresa" value="{{$empresa->empresa}}" class="form-control" placeholder="Nombre de la empresa"> 
+                              <input type="hidden" name="idEmpresa" value="{{$empresa->idEmpresa}}">
                             </div>
                             <div class="form-group">
-                              <input type="email" name="emailContribuyente" value="{{$contribuyente->email}}" class="form-control" placeholder="Email">
+                              <input type="email" name="emailEmpresa" value="{{$empresa->email}}" class="form-control" placeholder="Email">
                             </div>
                             <div class="form-group">
-                              <input type="text" name="telefonoFijo" value="{{$contribuyente->telefonoFijo}}" class="form-control" placeholder="Teléfono Fijo">
+                              <input type="text" name="telefonoFijo" value="{{$empresa->telefonoFijo}}" class="form-control" placeholder="Teléfono Fijo">
                             </div>
                             <div class="form-group">
-                              <input type="text" name="celular" value="{{$contribuyente->celular}}" class="form-control" placeholder="Celular de la empresa">
+                              <input type="text" name="celular" value="{{$empresa->celular}}" class="form-control" placeholder="Celular de la empresa">
                             </div>                          
                             <div class="form-group">
-                              <input type="text" name="contacto" value="{{$contribuyente->contacto}}" class="form-control" placeholder="Persona de Contácto">
+                              <input type="text" name="contacto" value="{{$empresa->contacto}}" class="form-control" placeholder="Persona de Contácto">
                             </div>
                             <div class="form-group">
-                              <input type="text" name="webSite" value="{{$contribuyente->website}}" class="form-control" placeholder="Página web">
+                              <input type="text" name="webSite" value="{{$empresa->website}}" class="form-control" placeholder="Página web">
                             </div>
                             <div class="form-group">
-                              <input type="text" name="actividad" class="form-control" value="{{$contribuyente->actividad}}" placeholder="Actividad que desarrolla">
+                              <input type="text" name="actividad" class="form-control" value="{{$empresa->actividad}}" placeholder="Actividad que desarrolla">
                               </div>
                           </div><!-- box-body -->
                         </div><!-- box-primary -->
@@ -73,25 +73,25 @@
                           </div>
                           <div class="box-body">
                             <div class="form-group">
-                              <input type="text" name="rifContribuyente" value="{{$contribuyente->rif}}" class="form-control" placeholder="Rif">
+                              <input type="text" name="rifEmpresa" value="{{$empresa->rif}}" class="form-control" placeholder="Rif">
                             </div>
                             <div class="form-group">
-                              <input type="text" name="nitContribuyente" value="{{$contribuyente->nit}}" class="form-control" placeholder="Nit"> 
+                              <input type="text" name="nitEmpresa" value="{{$empresa->nit}}" class="form-control" placeholder="Nit"> 
                             </div>                            
                             <div class="form-group">
-                              <input type="text" name="usuarioPortal" class="form-control" value="{{$contribuyente->usuario}}" placeholder="Usuario del portal web">
+                              <input type="text" name="usuarioPortal" class="form-control" value="{{$empresa->usuario}}" placeholder="Usuario del portal web">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" name="clavePortal" value="{{$contribuyente->clave}}" placeholder="Clave del portal web">          
+                              <input type="text" class="form-control" name="clavePortal" value="{{$empresa->clave}}" placeholder="Clave del portal web">          
                             </div>
                             <div class="form-group">
-                              <input type="text" name="direccionContribuyente" value="{{$contribuyente->direccion}}" class="form-control" placeholder="Dirección del Contribuyente"> 
+                              <input type="text" name="direccionEmpresa" value="{{$empresa->direccion}}" class="form-control" placeholder="Dirección de la empresa"> 
                             </div>                              
                             <div class="form-group">
-                              <input type="text" class="form-control" name="ciudad" value="{{$contribuyente->ciudad}}" placeholder="Ciudad registrada en el RIF">
+                              <input type="text" class="form-control" name="ciudad" value="{{$empresa->ciudad}}" placeholder="Ciudad registrada en el RIF">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" name="estado" value="{{$contribuyente->estado}}" placeholder="Estado registrado en el RIF">
+                              <input type="text" class="form-control" name="estado" value="{{$empresa->estado}}" placeholder="Estado registrado en el RIF">
                             </div>
                           </div><!-- box-body -->
                         </div><!-- box-primary -->
@@ -105,23 +105,23 @@
                           <div class="box-body">
                             <div class="form-group">
                               <label for="udi">Último día de Imposición</label>
-                              <input type="date" name="udi" class="form-control" value="{{$contribuyente->ultimoDiaImposicion}}" placeholder="Último dia de imposición">
+                              <input type="date" name="udi" class="form-control" value="{{$empresa->ultimoDiaImposicion}}" placeholder="Último dia de imposición">
                             </div>          
                             <div class="form-group">
-                              <input type="number" min="0" class="form-control" value="{{$contribuyente->exedenteCreditosFiscales}}" name="exedente" placeholder="Exedentes">
+                              <input type="number" min="0" class="form-control" value="{{$empresa->exedenteCreditosFiscales}}" name="exedente" placeholder="Exedentes">
                             </div>
                             <div class="form-group">
-                              <input type="number" class="form-control" value="{{$contribuyente->retencionesAcumuladas}}" name="retencionesAcumuladas" placeholder="Retenciones acumuladas"  min="0">
+                              <input type="number" class="form-control" value="{{$empresa->retencionesAcumuladas}}" name="retencionesAcumuladas" placeholder="Retenciones acumuladas"  min="0">
                             </div>
                             <div class="form-group">
                               <label for="fechaElaboracion">Elaboración de Última Planilla</label>
-                              <input type="date" class="form-control" name="fechaElaboracion" value="{{$contribuyente->fechaElaboracion}}" placeholder="Fecha de última planilla 99030">
+                              <input type="date" class="form-control" name="fechaElaboracion" value="{{$empresa->fechaElaboracion}}" placeholder="Fecha de última planilla 99030">
                             </div>
                             <div class="form-group">
-                              <input type="number" name="alicuotaG" class="form-control" value="{{$contribuyente->alicuotaGeneral}}" placeholder="Alicuota general" min="0" max="100" step="1">
+                              <input type="number" name="alicuotaG" class="form-control" value="{{$empresa->alicuotaGeneral}}" placeholder="Alicuota general" min="0" max="100" step="1">
                             </div>
                             <div class="form-group">
-                              <input type="number" class="form-control" value="{{$contribuyente->alicuotaReducida}}" name="alicuotaR" placeholder="Alicuota reducida" min="0" max="100" step="1">
+                              <input type="number" class="form-control" value="{{$empresa->alicuotaReducida}}" name="alicuotaR" placeholder="Alicuota reducida" min="0" max="100" step="1">
                             </div>
                           </div><!-- box-body -->
                         </div><!-- box-primary --> 
@@ -135,12 +135,12 @@
                           <div class="box-body">  
                             <div class="form-group">
                               <label for="observaciones">Observaciones</label>
-                              <input type="text" class="form-control" name="observaciones" value="{{$contribuyente->observaciones}}" placeholder="Observaciones generales">
+                              <input type="text" class="form-control" name="observaciones" value="{{$empresa->observaciones}}" placeholder="Observaciones generales">
                             </div>                                                 
                             <div class="form-group">
-                              <label for="estatus">Estatus del Contribuyente</label>
+                              <label for="estatus">Estatus de la Empresa</label>
                               <select name="estatus" id="estatus" class="form-control">
-                                @if($contribuyente->estatus == '1')
+                                @if($empresa->estatus == '1')
                                   <option value="1" Active>Activo</option>
                                   <option value="0">Suspendido</option>
                                 @else
@@ -164,9 +164,9 @@
                           <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Actualizar</button>
                           <button class="btn btn-danger" type="reset">Reset</button>
                           @if(Auth::user()->vista=='2')
-                            <a href="contribuyentes" class="btn btn-danger">Regresar</a>
+                            <a href="empresas" class="btn btn-danger">Regresar</a>
                           @else
-                            <a href="contribuyentes.listado" class="btn btn-danger">Regresar</a>
+                            <a href="empresas.listado" class="btn btn-danger">Regresar</a>
                           @endif
                         </div>
                       </div> 

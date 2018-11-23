@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+}); 
 
 Auth::routes();
 
@@ -23,13 +23,26 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-/*RUTAS DE CONTRIBUYENTES */
-Route::get('contribuyentes','ContribuyenteController@index');
-Route::get('contribuyentes.listado','ContribuyenteController@indexListado');
-Route::get('contribuyentes.filtro','ContribuyenteController@filtro');
-Route::get('contribuyentes.filtroListado','ContribuyenteController@filtroListado');
-Route::get('contribuyente.nuevo','ContribuyenteController@create');
-Route::name('nuevoContribuyente')->post('contribuyente.nuevo','ContribuyenteController@insert');
-Route::name('updateContribuyente')->post('contribuyentes','ContribuyenteController@update');
-Route::get('editaContribuyente','ContribuyenteController@edita');
-Route::get('tab', function () { return view('contribuyentes.customtab'); });
+/*RUTAS DE EMPRESAS */
+Route::get('empresas','empresaController@index');
+Route::get('empresas.listado','empresaController@indexListado');
+Route::get('empresas.filtro','empresaController@filtro');
+Route::get('empresas.filtroListado','empresaController@filtroListado');
+Route::get('empresa.nuevo','empresaController@create');
+Route::name('nuevoEmpresa')->post('empresa.nuevo','empresaController@insert');
+Route::name('updateEmpresa')->post('contribuyentes','empresaController@update');
+Route::get('editaEmpresa','empresaController@edita');
+Route::get('tab', function () { return view('empresas.customtab'); });
+
+/*RUTAS DE TERCEROS */
+Route::get('terceros','terceroController@index');
+Route::get('terceros.listado','terceroController@indexListado');
+Route::get('terceros.filtro','terceroController@filtro');
+Route::get('terceros.filtroListado','terceroController@filtroListado');
+Route::get('tercero.nuevo','terceroController@create');
+Route::name('nuevoTercero')->post('tercero.nuevo','terceroController@insert');
+Route::name('updateTercero')->post('terceros','terceroController@update');
+Route::get('editaTercero','terceroController@edita');
+Route::get('tab', function () { return view('terceros.customtab'); });
+
+Route::view('compras','compras.index');

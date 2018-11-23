@@ -188,13 +188,23 @@
                 <ul class="treeview-menu">
                   <li>
                     @if($userVista=="2")
-                      <a href="contribuyentes">
+                      <a href="empresas">
                     @else
-                      <a href="contribuyentes.listado">
+                      <a href="empresas.listado">
                     @endif
-                    <i class="fa fa-newspaper-o"></i><span>Contribuyentes</span>
+                    <i class="fa fa-newspaper-o"></i><span>Empresas</span>
                     </a>
                   </li>
+                  <li>
+                    @if($userVista=="2")
+                      <a href="terceros">
+                    @else
+                      <a href="terceros.listado">
+                    @endif
+                    <i class="fa fa-newspaper-o"></i><span>Terceros</span>
+                    </a>
+                  </li>
+
                   <li>
                     <a href="#">
                       <i class="fa fa-book" aria-hidden="true"></i> <span>Libro de compras</span>
@@ -259,9 +269,9 @@
     </div>  <!-- fin del wrapper -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="js/jQuery-2.1.4.min.js"></script>
+    <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="js/app.min.js"></script>
     <script src="js/printThis.js"></script>    

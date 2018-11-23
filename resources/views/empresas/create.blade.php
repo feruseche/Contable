@@ -10,33 +10,33 @@
     <div class="box box-primary">
 
       <div class="box-header with-border">
-        <h3 class="box-title"><b>Registro de Nuevo Contribuyente</b></h3>
+        <h3 class="box-title"><b>Registro de Nueva Empresa</b></h3>
       </div>
   
       <div class="box-body">
 
-        <form action="{{ route('nuevoContribuyente') }}" method="POST">
+        <form action="{{ route('nuevoEmpresa') }}" method="POST">
           {{ csrf_field() }}
           
           <div class="form-group">
-            <label for="nombreContribuyente">Nombres del Contribuyente</label>
-            <input type="text" name="nombreContribuyente" value="" class="form-control" placeholder="Nombre del contribuyente"> 
+            <label for="nombreEmpresa">Nombre de la Empresa</label>
+            <input type="text" name="nombreEmpresa" value="" class="form-control" placeholder="Nombre de la empresa"> 
           </div>
 
           <div class="form-group">
-            <input type="text" name="rifContribuyente" value="" class="form-control" placeholder="Rif">
+            <input type="text" name="rifEmpresa" value="" class="form-control" placeholder="Rif">
           </div>
 
           <div class="form-group">
-            <input type="phone" name="nitContribuyente" value="" class="form-control" placeholder="Nit"> 
+            <input type="phone" name="nitEmpresa" value="" class="form-control" placeholder="Nit"> 
           </div>
 
           <div class="form-group">
-            <input type="email" name="emailContribuyente" value="" class="form-control" placeholder="Email">
+            <input type="email" name="emailEmpresa" value="" class="form-control" placeholder="Email">
           </div>
 
           <div class="form-group">
-            <input type="text" name="direccionContribuyente" value="" class="form-control" placeholder="Dirección Fiscal"> 
+            <input type="text" name="direccionEmpresa" value="" class="form-control" placeholder="Dirección Fiscal"> 
           </div>
 <!--
           <div class="form-group">
@@ -100,7 +100,7 @@
           </div>
 -->
           <div class="form-group">
-            <label for="estatus">Estatus del Contribuyente en el Sistema</label>
+            <label for="estatus">Estatus de la Empresa en el Sistema</label>
             <select name="estatus" id="estatus" class="form-control">
               <option value="1">Activo</option>
               <option value="0">Suspendido</option>
@@ -111,9 +111,9 @@
         <div class="form-group pull-right">
           <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
           @if(Auth::user()->vista==='2')
-            <a href="contribuyentes" class="btn btn-danger">Regresar</a>
+            <a href="empresas" class="btn btn-danger">Regresar</a>
           @else
-            <a href="contribuyentes.listado" class="btn btn-danger">Regresar</a>
+            <a href="empresas.listado" class="btn btn-danger">Regresar</a>
           @endif
         </div>
 

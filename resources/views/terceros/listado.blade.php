@@ -5,14 +5,14 @@
     <div class="row">
         <section class="content-header">
             <h1>
-                <a href="contribuyentes.listado"><button type="button" class="btn btn-info"><i class="fa fa-table"></i></button></a>
-                <a href="contribuyentes"><button type="button" class="btn btn-info"><i class="fa fa-th-large"></i></button></a>
-                 {{ $nRegistros }} Contribuyentes
+                <a href="terceros.listado"><button type="button" class="btn btn-info"><i class="fa fa-table"></i></button></a>
+                <a href="terceros"><button type="button" class="btn btn-info"><i class="fa fa-th-large"></i></button></a>
+                 {{ $nRegistros }} Terceros
                 <small>personas naturales y jurídicas</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="home"><i class="fa fa-dashboard"></i> Principal</a></li>
-                <li><a href="contribuyentes.listado">Contribuyentes</a></li>
+                <li><a href="terceros.listado">Terceros</a></li>
                 <li class="active">Listado General</li>
             </ol>
         </section>
@@ -21,7 +21,7 @@
             @if ($searchText)
                 La lista está filtrada por el texto "{{ $searchText }}"   y se encontraron "{{ $nr }}" coincidencia(s).
             @endif 
-            @include('contribuyentes.searchListado')
+            @include('terceros.searchListado')
         </section>
 
     </div>
@@ -34,10 +34,10 @@
                     <th>NOMBRE O RAZÓN SOCIAL</th>
                     <th>RIF</th>
                 </tr>
-                @foreach($contribuyentes as $contribuyente)
-                    <tr <?php if($contribuyente->estatus=='0'){ echo 'class="bg-orange disabled"'; } ?>>
-                        <td><a href="editaContribuyente?id={{$contribuyente->idContribuyente}}">{{ $contribuyente->contribuyente }}</a></td>
-                        <td><a href="editaContribuyente?id={{$contribuyente->idContribuyente}}">{{ $contribuyente->rif }}</a></td>
+                @foreach($terceros as $tercero)
+                    <tr> 
+                        <td><a href="editaTercero?id={{$tercero->idTercero}}">{{ $tercero->tercero }}</a></td>
+                        <td><a href="editaTercero?id={{$tercero->idTercero}}">{{ $tercero->rif }}</a></td>
                     </tr>
                 @endforeach                
             </tbody>
