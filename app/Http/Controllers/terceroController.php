@@ -115,9 +115,9 @@ public	function __construct()	{
 
         $idC = $req->get('id');
         $terceros = Tercero::where('idTercero',$idC)
-                            ->get();
+                            ->first();
 
-        return view("terceros.edit",["terceros"=>$terceros]);
+        return view("terceros.edit",["tercero"=>$terceros]);
 
     }
 

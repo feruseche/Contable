@@ -1,29 +1,61 @@
 @extends('inicio.app')
 @section('contenido')
-
-<?php
-  foreach($empresas as $empresa){
-    $empresa = $empresa->empresa;
-  }
-?>
+ 
 
   <div class="content">
 
+    <section class="content-header">
+      <h1>
+         Archivos de {{ $empresa->empresa }}
+        <small>{{ $empresa->rif }}</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="home"><i class="fa fa-dashboard"></i> Principal</a></li>
+        @if(Auth::user()->vista=='2')
+          <li><a href="empresas">Empresas</a></li>
+        @else
+          <li><a href="empresas.listado">Empresas</a></li>
+        @endif
+        <li class="active">{{ $empresa->empresa }}</li>
+      </ol>
+    </section>
+
+    <section class="content-header">
+      
+    </section>
+
       <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs pull-right">
-            <li class=""><a href="#tab_0-1" data-toggle="tab" aria-expanded="false">99030</a></li>
-            <li class=""><a href="#tab_1-1" data-toggle="tab" aria-expanded="false">Ventas</a></li>
-            <li class=""><a href="#tab_2-1" data-toggle="tab" aria-expanded="false">Compras</a></li>
+        <ul class="nav nav-tabs">
             <li class="active"><a href="#tab_3-1" data-toggle="tab" aria-expanded="true">Datos</a></li>
-            <li class="pull-left header"><i class="fa fa-folder"></i> {{ $empresa }}</li>
+            <li class=""><a href="#tab_2-1" data-toggle="tab" aria-expanded="false">Compras</a></li>
+            <li class=""><a href="#tab_1-1" data-toggle="tab" aria-expanded="false">Ventas</a></li>
+            <li class=""><a href="#tab_0-1" data-toggle="tab" aria-expanded="false">99030</a></li>            
         </ul>
         <div class="tab-content">
           <div class="tab-pane" id="tab_0-1">
               <b>Planilla 99030:</b>
           </div><!-- tab-1 -->
+
+
           <div class="tab-pane" id="tab_1-1">
-              <b>Libro de Ventas:</b>
+            <div class="form-group" id="select-tercero">
+              {!! Form::open(['route' => ['buscaFacturaManual'],'method'=>'post','id'=>'formulario']) !!}
+            {{ csrf_field() }}  
+
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" name="idtercero" id="idtercero">
+                @foreach($terceros as $tercero)
+                  <option data-subtext="{{$tercero->rif}}" value="{{$tercero->idTercero}}">{{$tercero->tercero}}</option>
+                @endforeach
+              </select>
+              <input type="button" value="Seleccionar" id="Seleccionar" name="Seleccionar">
+            </div>
+            <div class="submenu" style="display: none;" id="submenu">
+              @include('ventas.index')
+            </div>
+
+             {!! Form::close() !!}
           </div><!-- tab-1 -->
+
           <!-- /.tab-pane -->
           <div class="tab-pane" id="tab_2-1">
             <b>Libro de Compras:</b>
@@ -33,7 +65,7 @@
                   <form action="{{ route('updateEmpresa') }}" method="POST">
                     {{ csrf_field() }}
 
-                      @foreach($empresas as $empresa)
+                      
                       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">  
                         <div class="box box-primary">
                           <div class="box-header with-border">
@@ -149,14 +181,9 @@
                                 @endif
                               </select>
                             </div>
-                            </div><!-- box-body -->
-                        
-                        
+                          </div><!-- box-body -->  
                         </div><!-- box-body -->
-                        </div><!-- box-primary --> 
-                      </div><!-- col-lg -->
-
-                      @endforeach
+                      </div><!-- box-primary --> 
                     
                     <div class="box-footer">   
                       <div class="form-group">
@@ -170,7 +197,11 @@
                           @endif
                         </div>
                       </div> 
-                    </div>
+                    </div>                        
+
+                  </div><!-- col-lg -->
+
+
                   </form>
                 </div><!-- box-body -->
                 <div class="box-footer">
@@ -184,5 +215,21 @@
 
   </div> <!-- row -->
 
-
 @endsection
+@push('scripts')
+<script>
+  $(document).ready(function(){
+
+    
+    $("#Seleccionar").click(function(){
+
+      $("#submenu").css("display","block");
+      
+
+    });
+
+
+
+  });
+</script>
+@endpush

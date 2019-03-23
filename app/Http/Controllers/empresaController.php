@@ -4,6 +4,7 @@ namespace Contable\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Contable\Empresa; 
+use Contable\Tercero; 
 use Contable\User;
 use Auth;
 
@@ -131,9 +132,12 @@ class empresaController extends Controller
 
         $idC = $req->get('id');
         $empresas = Empresa::where('idEmpresa',$idC)
-                            ->get();
+                            ->first();
+        
+        $terceros = Tercero::orderBy('tercero','ASC')->get();
+        //dd($empresas);
 
-        return view("empresas.edit",["empresas"=>$empresas]);
+        return view("empresas.edit",["empresa"=>$empresas,"terceros"=>$terceros]);
 
     }
 

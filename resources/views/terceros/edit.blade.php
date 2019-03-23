@@ -1,18 +1,32 @@
 @extends('inicio.app')
 @section('contenido')
 
-<?php
-  foreach($terceros as $tercero){
-    $tercero = $tercero->tercero;
-  }
-?>
 
   <div class="content">
 
+<section class="content-header">
+      <h1>
+         Archivos del Tercero {{ $tercero->tercero }}
+        <small>{{ $tercero->rif }}</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="home"><i class="fa fa-dashboard"></i> Principal</a></li>
+        @if(Auth::user()->vista=='2')
+          <li><a href="terceros">Terceros</a></li>
+        @else
+          <li><a href="terceros.listado">Terceros</a></li>
+        @endif
+        <li class="active">{{ $tercero->tercero }}</li>
+      </ol>
+    </section>
+
+    <section class="content-header">
+      
+    </section>
+
       <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs pull-right">
+        <ul class="nav nav-tabs">
             <li class="active"><a href="#tab_0-1" data-toggle="tab" aria-expanded="true">Datos</a></li>
-            <li class="pull-left header"><i class="fa fa-folder"></i> {{ $tercero }}</li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="tab_0-1">
@@ -21,22 +35,7 @@
                     {{ csrf_field() }}
 
                    
-
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-      <div class="form-group">
-        <div class="row-fluid">
-          <select class="selectpicker" data-show-subtext="true" data-live-search="true">
-            <option data-subtext="Rep California">Tom Foolery</option>
-            <option data-subtext="Sen California">Bill Gordon</option>
-            <option data-subtext="Sen Massacusetts">Elizabeth Warren</option>
-            <option data-subtext="Rep Alabama">Mario Flores</option>
-            <option data-subtext="Rep Alaska">Don Young</option>
-            <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option>
-          </select>
-          <span class="help-inline">With <code>data-show-subtext="true" data-live-search="true"</code>. Try searching for california</span>
-        </div>
-      </div>
-    </div>
+                   
 
                     <div class="box-footer">   
                       <div class="form-group">

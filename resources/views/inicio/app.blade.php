@@ -5,10 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }} | www.contable.co.ve</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -22,36 +20,41 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('css/_all-skins.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/cafetin.css') }}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/cafetin.css') }}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 
     <link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon.png') }}">
     <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}">
     <!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Font Awesome 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+  <!-- Ionicons 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="{{asset('dist/css/AdminLTE.min.css')}}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="{{asset('dist/css/skins/_all-skins.min.css')}}">
   <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+  <link rel="stylesheet" href="{{asset('plugins/iCheck/flat/blue.css')}}">
   <!-- Morris chart -->
-  <link rel="stylesheet" href="plugins/morris/morris.css">
+  <link rel="stylesheet" href="{{asset('plugins/morris/morris.css')}}">
   <!-- jvectormap -->
-  <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+  <link rel="stylesheet" href="{{asset('plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}">
   <!-- Date Picker -->
-  <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+  <link rel="stylesheet" href="{{asset('plugins/datepicker/datepicker3.css')}}">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" href="{{asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+  <link rel="stylesheet" href="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css')}}">
+  <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')}}"></script>
+  <script src="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js')}}"></script>
 
-    <script src="/js/vue.min.js"></script>
+  <script src="/js/vue.min.js"></script>
   </head>
 
   <body class="hold-transition skin-blue-light">
@@ -179,7 +182,7 @@
         <aside class="main-sidebar">
           <section class="sidebar">
             <ul class="sidebar-menu">
-              <li class="treeview">
+              <li class="treeview active">
                 <a href="#">
                   <i class="fa fa-database"></i>
                   <span>Archivos</span>
@@ -204,22 +207,6 @@
                     <i class="fa fa-newspaper-o"></i><span>Terceros</span>
                     </a>
                   </li>
-
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-book" aria-hidden="true"></i> <span>Libro de compras</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-book" aria-hidden="true"></i> <span>Libro de ventas</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-th-list" aria-hidden="true"></i> <span>Forma 99030</span>
-                    </a>
-                  </li>
                   <li>
                     <a href="#">
                       <i class="fa fa-users" aria-hidden="true"></i> <span>Prestaciones</span>
@@ -232,7 +219,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="treeview">
+              <li class="treeview active">
                 <a href="#">
                   <i class="fa fa-cogs"></i> <span>Configuración</span>
                   <i class="fa fa-angle-left pull-right"></i>
@@ -264,17 +251,14 @@
           <div class="pull-right hidden-xs">
             <b>Versión</b> 2018
           </div>
-          <strong>Copyright &copy; 2018-2028 <a href="www.avances.com.co">NKS Software</a></strong>
+          <strong>Copyright &copy; 2018-2028 <a href="www.nks.com.ve">NKS Software</a></strong>
         </footer>
     </div>  <!-- fin del wrapper -->
 
-    <!-- jQuery 2.1.4 -->
-    <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="js/app.min.js"></script>
     <script src="js/printThis.js"></script>    
+    @stack('scripts')
   </body>
 
 </html>

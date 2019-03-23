@@ -4,13 +4,31 @@
 <div class="content">
 
 <div class="row">
+  <section class="content-header">
+      <h1>
+        <a href="empresas.listado"><button type="button" class="btn btn-info"><i class="fa fa-table"></i></button></a>
+         Registrar Nueva Empresa
+      </h1>
+      <section class="content-header">
+        
+      </section>
+      <ol class="breadcrumb">
+        <li><a href="home"><i class="fa fa-dashboard"></i> Principal</a></li>
+        @if(Auth::user()->vista=='2')
+          <li><a href="empresas">Empresas</a></li>
+        @else
+          <li><a href="empresas.listado">Empresas</a></li>
+        @endif
+        <li class="active">Nueva Empresa</li>
+      </ol>
+    </section>
 
-  <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">  
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
 
     <div class="box box-primary">
 
       <div class="box-header with-border">
-        <h3 class="box-title"><b>Registro de Nueva Empresa</b></h3>
+        <h3 class="box-title"><b>Datos de la Nueva Empresa</b></h3>
       </div>
   
       <div class="box-body">

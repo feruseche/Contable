@@ -5,7 +5,26 @@
 
 <div class="row">
 
-  <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12">  
+ <section class="content-header">
+      <h1>
+        <a href="empresas.listado"><button type="button" class="btn btn-info"><i class="fa fa-table"></i></button></a>
+         Registrar Nuevo Tercero
+      </h1>
+      <section class="content-header">
+        
+      </section>
+      <ol class="breadcrumb">
+        <li><a href="home"><i class="fa fa-dashboard"></i> Principal</a></li>
+        @if(Auth::user()->vista=='2')
+          <li><a href="terceros">Terceros</a></li>
+        @else
+          <li><a href="terceros.listado">Terceros</a></li>
+        @endif
+        <li class="active">Nuevo Tercero</li>
+      </ol>
+    </section>
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
 
     <div class="box box-primary">
 

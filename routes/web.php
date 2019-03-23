@@ -46,3 +46,7 @@ Route::get('editaTercero','terceroController@edita');
 Route::get('tab', function () { return view('terceros.customtab'); });
 
 Route::view('compras','compras.index');
+
+/*RUTAS PARA LA CARGA DE FACTURAS MANUALES DE VENTA*/
+
+Route::name('buscaFacturaManual')->post('ventas.index','ventasController@buscaFacturaManual');

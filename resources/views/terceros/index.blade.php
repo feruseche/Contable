@@ -15,7 +15,7 @@
 		<ol class="breadcrumb">
 			<li><a href="home"><i class="fa fa-dashboard"></i> Principal</a></li>
 			<li><a href="terceros">Terceros</a></li>
-			<li class="active">Listado General</li>
+			<li class="active">Listado de Terceros</li>
 		</ol>
 	</section>
 
